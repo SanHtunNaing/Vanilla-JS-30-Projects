@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<link>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoplify Survey</title>
+    <link rel="stylesheet" href="styles.css"></link>
+</head>
+<body>
+   
+    <div id="form">
+        <h1 id="title">Shoplify Survey</h1>
+        <p id="description">Thank you for taking the time to help us improve our businesss.</p>
+
+        <form id="survey-form">
+           
+           <div class="userinfo">
+            <label for="firstname" id="name-label">Full Name:</label><br>
+            <input type="text" id="name" required name="firstname" placeholder="Enter Your Full Name">
+           </div>
+           <br>
+           <div class="userinfo">
+            <label for="email" id="email-label">Email:</label><br>
+            <input type="email" id="email" required name="email" placeholder="Enter Your Email">
+           </div>
+           <br>
+           <div class="userinfo">
+            <label for="age" id="number-label">Age  <small>(optional)</small>:</label><br>
+            <input type="number" id="number" name="age" placeholder="Enter Your Age" min="0" max="100">
+           </div>
+            <br>
+
+            <label for="dropdown" id="unique">What's your favorite category to shop for?</label><br>
+            <select id="dropdown">
+                <option value="foodanddrinks" selected>Foods and Drinks</option>
+                <option value="electronics">Electronics</option>
+                <option value="furniture">Furniture</option>
+                <option value="books">Books</option>
+                <option value="other">Other</option>
+            </select>
+
+            <p>Would you recommend our business to your friends?</p>
+            <input type="radio" name="recommendation" id="absolutely" value="absolutely">
+            <label for="absolutely">Absoluely</label><br>
+            <input type="radio" name="recommendation" id="ofcourse" value="ofcourse">
+            <label for="ofcourse">Of Course</label><br>
+            <input type="radio" name="recommendation"id="no" value="no">
+            <label for="no">I don't think so</label><br>
+
+            <p>What area would you like to improve?</p>
+            <input type="checkbox" id="checkbox1" name="checkbox1" value="1">
+            <label for="checkbox1">Foods and Drinks</label>
+            <br>
+            <input type="checkbox" id="checkbox2" name="checkbox1" value="2">
+            <label for="checkbox2">Electronics</label>
+            <br>
+            <input type="checkbox" id="checkbox3" name="checkbox1" value="3">
+            <label for="checkbox3">Furniture</label>
+            <br>
+            <input type="checkbox" id="checkbox4" name="checkbox1" value="4">
+            <label for="checkbox4">Books</label>
+            <br>
+            <input type="checkbox" id="checkbox5" name="checkbox1" value="5">
+            <label for="checkbox5">Other</label>
+
+            <p>Any comments or suggestions</p>
+            <textarea name="textarea" id="usercomment" rows="7" cols="10" placeholder="Enter your comment...."></textarea>
+            
+            <br>
+            <input type="submit" value="Submit" id="submit"> 
+        
+        </form>
+    </div>
+</body>
+</html>
