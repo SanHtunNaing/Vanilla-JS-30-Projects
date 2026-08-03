@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum Kit Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-layout">
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="pattern-section">
+                <h3><span class="icon">⚡</span> Practice Beats</h3>
+                <ul class="pattern-list">
+                    <li><strong>Basic Rock</strong><span>A - S - D - S</span></li>
+                    <li><strong>Disco Beat</strong><span>A - F - A - F</span></li>
+                    <li><strong>Techno Pop</strong><span>D - G - J - G</span></li>
+                    <li><strong>Roll Fill</strong><span>K - K - L - L</span></li>
+                    <li><strong>Hip-Hop Boom Bap</strong><span>D - A - J - S</span></li>
+                    <li><strong>Funk Groove</strong><span>D - F - A - J</span></li>
+                    <li><strong>Trap Drop</strong><span>D - S - S - J</span></li>
+                    <li><strong>Synthwave Beat</strong><span>D - A - D - J</span></li>
+                    <li><strong>Reggae One-Drop</strong><span>F - J - D - S</span></li>
+                    <li><strong>Afrobeat Groove</strong><span>D - H - J - F</span></li>
+                    <li><strong>R&B Slow Jam</strong><span>D - A - S - J</span></li>
+                    <li><strong>Dubstep Kick-Snare</strong><span>D - K - J - S</span></li>
+                    <li><strong>Punk Fast Beat</strong><span>D - S - J - S</span></li>
+                    <li><strong>Latin Bossa Nova</strong><span>D - H - A - J</span></li>
+                    <li><strong>House Beat 4/4</strong><span>D - F - D - F</span></li>
+                    <li><strong>Metal Double Kick</strong><span>D - D - J - H</span></li>
+                    <li><strong>Lo-Fi Chill Beat</strong><span>D - A - S - J</span></li>
+                    <li><strong>Drum & Bass Rush</strong><span>D - S - J - D</span></li>
+                </ul>
+                
+            </div>
+            <footer class="app-footer">
+               <p>
+                   Coded with 🖤 by <br>
+                   <a href="https://github.com/SanHtunNaing" target="_blank" rel="noopener noreferrer">
+                       SanHtunNaing@Alaric 🔗
+                   </a>
+               </p>
+           </footer>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                <span id="theme-icon">🌙</span>
+                <span id="theme-text">Dark Mode</span>
+            </button>
+
+            <header class="app-header">
+                <span class="logo-icon" role="img" aria-label="headphones">🎧</span>
+                <h1 class="app-title">DRUM<span>KIT</span></h1>
+            </header>
+
+            <!-- Master Volume Controller Section -->
+            <div class="volume-container">
+                <span class="volume-icon">🔊</span>
+                <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.8">
+                <span id="volume-value">80%</span>
+            </div>
+
+            <!-- Drum Keys Grid -->
+            <div class="keys-grid">
+                <button data-key="KeyA" class="key"><kbd>A</kbd><span class="sound">CLAP</span></button>
+                <button data-key="KeyS" class="key"><kbd>S</kbd><span class="sound">HIHAT</span></button>
+                <button data-key="KeyD" class="key"><kbd>D</kbd><span class="sound">KICK</span></button>
+                <button data-key="KeyF" class="key"><kbd>F</kbd><span class="sound">OPENHAT</span></button>
+                <button data-key="KeyG" class="key"><kbd>G</kbd><span class="sound">BOOM</span></button>
+                <button data-key="KeyH" class="key"><kbd>H</kbd><span class="sound">RIDE</span></button>
+                <button data-key="KeyJ" class="key"><kbd>J</kbd><span class="sound">SNARE</span></button>
+                <button data-key="KeyK" class="key"><kbd>K</kbd><span class="sound">TOM</span></button>
+                <button data-key="KeyL" class="key"><kbd>L</kbd><span class="sound">TINK</span></button>
+            </div>
+            
+        </main>
+        
+    </div>
+
+    <!-- Audio Elements -->
+    <audio data-key="KeyA" src="sounds/Clap.wav"></audio>
+    <audio data-key="KeyS" src="sounds/HiHat.wav"></audio>
+    <audio data-key="KeyD" src="sounds/Kick.wav"></audio>
+    <audio data-key="KeyF" src="sounds/OpenHat.wav"></audio>
+    <audio data-key="KeyG" src="sounds/Boom.wav"></audio>
+    <audio data-key="KeyH" src="sounds/Ride.wav"></audio>
+    <audio data-key="KeyJ" src="sounds/Snare.wav"></audio>
+    <audio data-key="KeyK" src="sounds/Tom.wav"></audio>
+    <audio data-key="KeyL" src="sounds/Tink.wav"></audio>
+
+    <script src="main.js"></script>
+</body>
+</html>

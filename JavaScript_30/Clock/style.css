@@ -1,0 +1,205 @@
+:root {
+    color-scheme: light;
+  }
+  
+  html {
+    background: #e0e5ec;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    text-align: center;
+    font-size: 10px;
+  }
+  
+  body {
+    margin: 0;
+    font-size: 2rem;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: #e0e5ec;
+  }
+  
+  /* 1. Neumorphic Outer Frame */
+  .clock {
+    width: 32rem;
+    height: 32rem;
+    background: #e0e5ec;
+    border-radius: 50%;
+    position: relative;
+    padding: 2rem;
+    /* အပြင်ဘက် ထွက်နေတဲ့ Soft Shadow Effects */
+    box-shadow: 
+      9px 9px 16px #b8b9be, 
+      -9px -9px 16px #ffffff;
+  }
+  
+  /* 2. Clock Dial (အထဲသို့ ခွက်ဝင်နေသော Depth Effect) */
+  .clock-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #e0e5ec;
+    /* အထဲသို့ ခွက်ဝင်နေသော Inset Shadows */
+    box-shadow: 
+      inset 6px 6px 10px #b8b9be, 
+      inset -6px -6px 10px #ffffff;
+  }
+  
+  /* 3. Numbers Styling */
+  .number {
+    --rotation: 0deg;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform: rotate(var(--rotation));
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #556080;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+  
+  .number span {
+    display: inline-block;
+    transform: rotate(calc(-1 * var(--rotation)));
+  }
+  
+  .number-1  { --rotation: 30deg; }
+  .number-2  { --rotation: 60deg; }
+  .number-3  { --rotation: 90deg; }
+  .number-4  { --rotation: 120deg; }
+  .number-5  { --rotation: 150deg; }
+  .number-6  { --rotation: 180deg; }
+  .number-7  { --rotation: 210deg; }
+  .number-8  { --rotation: 240deg; }
+  .number-9  { --rotation: 270deg; }
+  .number-10 { --rotation: 300deg; }
+  .number-11 { --rotation: 330deg; }
+  .number-12 { --rotation: 0deg; }
+  
+ /* 4. Base Hand Style (ပိုမို သပ်ရပ် ပါးလွှာသော Base) */
+.hand {
+    position: absolute;
+    top: 50%;
+    right: 50%; /* ဗဟိုချက်မှ စတင်ရန် */
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    border-radius: 4px;
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+  }
+  
+  /* 5. Sleek & Modern Hand Styling */
+  
+  /* နာရီလက်တံ: တိုပြီး အနည်းငယ် ထူမည် (Dark Slate) */
+  .hour-hand {
+    height: 6px;
+    width: 28%;
+    background: #2d3748;
+    border-radius: 6px;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* မိနစ်လက်တံ: ရှည်ပြီး ပါးလွှာမည် (Dark Slate) */
+  .min-hand {
+    height: 4px;
+    width: 40%;
+    background: #4a5568;
+    border-radius: 4px;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* စက္ကန့်လက်တံ: အလွန်ပါးလွှာပြီး ထင်းကနဲ ပေါ်မည့် Accent Color (Coral Red) */
+  .second-hand {
+    height: 2px;
+    width: 45%;
+    background: #e53e3e; 
+    border-radius: 2px;
+    box-shadow: 1px 2px 4px rgba(229, 62, 62, 0.3);
+  }
+  
+  /* 6. Premium Center Pin (လက်တံများကို စုစည်းပေးမည့် ဗဟိုချက်) */
+  .center-dot {
+    width: 12px;
+    height: 12px;
+    background: #e53e3e; /* စက္ကန့်လက်တံ အရောင်နှင့် တိုင်ပင်ထားခြင်း */
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  }
+
+  /* --- Neumorphic Theme Switch Button --- */
+.theme-toggle {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    padding: 12px 24px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    background: #e0e5ec;
+    color: #2d3748;
+    box-shadow: 5px 5px 10px #b8b9be, -5px -5px 10px #ffffff;
+    transition: all 0.3s ease;
+  }
+  
+  .theme-toggle:active {
+    box-shadow: inset 3px 3px 6px #b8b9be, inset -3px -3px 6px #ffffff;
+  }
+  
+  /* ==========================================
+     🌙 DARK NEUMORPHIC THEME STYLES
+     ========================================== */
+  body.dark-mode {
+    background: #1e2025;
+  }
+  
+  body.dark-mode .theme-toggle {
+    background: #1e2025;
+    color: #ffb703;
+    box-shadow: 5px 5px 10px #141519, -5px -5px 10px #282b31;
+  }
+  
+  body.dark-mode .clock {
+    background: #1e2025;
+    box-shadow: 10px 10px 20px #131417, -10px -10px 20px #292c33;
+  }
+  
+  body.dark-mode .clock-face {
+    background: #1e2025;
+    box-shadow: inset 6px 6px 12px #131417, inset -6px -6px 12px #292c33;
+  }
+  
+  body.dark-mode .number {
+    color: #a0aec0;
+  }
+  
+  body.dark-mode .hour-hand {
+    background: #e2e8f0;
+    box-shadow: 0 0 8px rgba(226, 232, 240, 0.4);
+  }
+  
+  body.dark-mode .min-hand {
+    background: #cbd5e1;
+  }
+  
+  /* Dark Mode မှာ စက္ကန့်လက်တံလေး Neon Glow ဖြစ်စေရန် */
+  body.dark-mode .second-hand {
+    background: #ff4757;
+    box-shadow: 0 0 10px #ff4757;
+  }
+  
+  body.dark-mode .center-dot {
+    background: #ff4757;
+    border-color: #1e2025;
+    box-shadow: 0 0 8px #ff4757;
+  }

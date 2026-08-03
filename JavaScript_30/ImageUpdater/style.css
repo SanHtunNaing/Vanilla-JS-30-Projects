@@ -1,0 +1,295 @@
+:root {
+  /* Default Color - Cyan Blue (#00b4d8) သို့မဟုတ် Purple Accent */
+  --base: #00b4d8; 
+  --spacing: 12px;
+  --blur: 0px;
+  --brightness: 100%;
+  --contrast: 100%;
+  --saturate: 100%;
+  --rotate: 0deg;
+  --scaleH: 1;
+  --scaleV: 1;
+  --aspect-ratio: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 50px 20px;
+  transition: background 0.6s ease-in-out;
+  background: linear-gradient(135deg, #13072e 0%, #3f0e40 50%, #7928ca 100%);
+  background-attachment: fixed;
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  text-align: center;
+  min-height: 100vh;
+}
+
+h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  color: #ffffff;
+  text-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+}
+
+.hl {
+  color: var(--base);
+  transition: color 0.3s ease;
+}
+
+.controls {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 16px 24px;
+  border-radius: 50px;
+  margin-bottom: 40px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.controls label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #f3e8ff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.upload-label, .icon-btn, .ratio-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 12px;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+
+.upload-label:hover, .icon-btn:hover, .ratio-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.5), 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.upload-label:active, .icon-btn:active, .ratio-btn:active, .action-btn:active {
+  transform: translateY(0) scale(0.96);
+  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.3);
+}
+
+.ratio-btn.active {
+  background: #ffffff;
+  color: #2e1065;
+  border-color: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+.upload-label input[type="file"] {
+  display: none;
+}
+
+.transform-container, .ratio-container {
+  display: flex;
+  gap: 6px;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  padding-left: 10px;
+}
+
+.action-btn {
+  background: #ffffff;
+  color: #2e1065;
+  border: none;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.action-btn:hover {
+  background: #f3e8ff;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.6), 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.secondary-btn {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: none;
+}
+
+.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.8);
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
+}
+
+/* Preset Palette Buttons - Colors Updated */
+.palette-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0 10px;
+}
+
+.palette-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  outline: none;
+}
+
+.palette-btn:hover {
+  transform: scale(1.35);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+}
+
+/* Preset palette ခလုတ်များ၏ အရောင်အသစ်များ (Orange ဖယ်ပြီး ပန်းခရမ်း ရောင်စဉ်များ ပြောင်းထားပါသည်) */
+.palette-btn.ocean { background: #00b4d8; }   /* Cyan Blue */
+.palette-btn.purple { background: #a855f7; }  /* Bright Purple */
+.palette-btn.pink { background: #ec4899; }    /* Neon Pink */
+.palette-btn.violet { background: #7c3aed; }  /* Deep Violet */
+
+/* Sliders & Color Picker Hover Animations */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 65px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 2px;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+input[type="range"]:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.8);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.3);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 1);
+}
+
+input[type="color"] {
+  -webkit-appearance: none;
+  border: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: transparent;
+  transition: transform 0.2s ease;
+}
+
+input[type="color"]:hover {
+  transform: scale(1.2);
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+input[type="color"]::-webkit-color-swatch {
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+/* Image Wrapper & Drag-and-Drop Area */
+.img-wrapper {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing);
+  background: var(--base);
+  border-radius: 12px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+  transition: padding 0.15s ease, background 0.3s ease, border-color 0.2s ease;
+  overflow: hidden;
+  max-width: 800px;
+  width: 90vw;
+  border: 3px dashed transparent;
+}
+
+.img-wrapper.drag-over {
+  border-color: #ffffff;
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.8);
+}
+
+.drop-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(19, 7, 46, 0.7);
+  backdrop-filter: blur(4px);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+
+.img-wrapper.drag-over .drop-overlay {
+  opacity: 1;
+}
+
+img {
+  filter: blur(var(--blur)) brightness(var(--brightness)) contrast(var(--contrast)) saturate(var(--saturate));
+  width: 100%;
+  height: 100%;
+  aspect-ratio: var(--aspect-ratio);
+  object-fit: cover;
+  display: block;
+  transform: rotate(var(--rotate)) scaleX(var(--scaleH)) scaleY(var(--scaleV));
+  transition: transform 0.3s ease, aspect-ratio 0.3s ease;
+}
