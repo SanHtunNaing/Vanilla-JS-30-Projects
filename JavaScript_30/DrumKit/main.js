@@ -1,60 +1,42 @@
 // ==========================================
-// 1. Sound Map & Global Variables Setup
+// 1. Global Variables Setup
 // ==========================================
-const soundMap = {
-    'KeyA': 'Clap.wav',
-    'KeyS': 'HiHat.wav',
-    'KeyD': 'Kick.wav',
-    'KeyF': 'OpenHat.wav',
-    'KeyG': 'Boom.wav',
-    'KeyH': 'Ride.wav',
-    'KeyJ': 'Snare.wav',
-    'KeyK': 'Tom.wav',
-    'KeyL': 'Tink.wav'
-};
-
 let currentVolume = 0.8; // Default Master Volume (80%)
 
 // ==========================================
-// 2. Sound Play Logic (Direct Audio Object)
+// 2. Sound Play Logic (Combined Waves & Volume)
 // ==========================================
 function playSound(keyData) {
-    const soundFile = soundMap[keyData];
+    const audio = document.querySelector(`audio[data-key="${keyData}"]`);
     const key = document.querySelector(`.key[data-key="${keyData}"]`);
 
-    if (!soundFile || !key) return;
+    if (!audio || !key) return;
 
-    // Direct Audio Instance ဖြင့် Relative Path ပြဿနာကို ရှင်းထားခြင်း
-    const audio = new Audio(`./sounds/${soundFile}`);
+    // အသံအတိုးအကျယ်နှင့် Playhead ပြန်စခြင်း
     audio.volume = currentVolume;
     audio.currentTime = 0;
+    audio.play();
 
-    const playPromise = audio.play();
-    if (playPromise !== undefined) {
-        playPromise.catch(error => {
-            console.warn("Audio play blocked by browser policies:", error);
-        });
-    }
-
-    // Key Press Glow Animation
+    // Key Press Glow Animation ပြန်စရန်
     key.classList.remove('playing');
     void key.offsetWidth; // Trigger reflow for CSS animation reset
     key.classList.add('playing');
 
-    // --- A. Dynamic Ripple Effect ---
+    // --- A. Dynamic Ripple Effect (အလယ်မှ ပေါက်ကွဲသည့် လှိုင်း) ---
     const ripple = document.createElement('span');
     ripple.classList.add('ripple');
     ripple.style.left = '50%';
     ripple.style.top = '50%';
     key.appendChild(ripple);
 
-    // --- B. Dynamic Sound Wave Effect ---
+    // --- B. Dynamic Sound Wave Effect (အပြင်သို့ ဖြာထွက်သည့် အသံလှိုင်း) ---
     [0, 100].forEach(delay => {
         setTimeout(() => {
             const wave = document.createElement('span');
             wave.classList.add('sound-wave');
             key.appendChild(wave);
 
+            // Wave Element ပြန်ဖျက်မည်
             setTimeout(() => wave.remove(), 400);
         }, delay);
     });
@@ -70,16 +52,7 @@ function playSound(keyData) {
 // 3. Keyboard Event Listener
 // ==========================================
 window.addEventListener('keydown', (e) => {
-    let keyData = e.code;
-    
-    // Numpad သို့မဟုတ် e.key ဖြင့် Fallback လုပ်ခြင်း
-    if (!soundMap[keyData]) {
-        keyData = `Key${e.key.toUpperCase()}`;
-    }
-
-    if (soundMap[keyData]) {
-        playSound(keyData);
-    }
+    playSound(e.code);
 });
 
 // ==========================================
@@ -104,14 +77,17 @@ const volumeSlider = document.getElementById('volume-slider');
 const volumeValue = document.getElementById('volume-value');
 const volumeIcon = document.querySelector('.volume-icon');
 
+// Slider ဘယ်ဘက် % အထိ အရောင်ဖြည့်ပေးသည့် Function
 function updateSliderProgress(val) {
     if (!volumeSlider) return;
     const percentage = val * 100;
     
+    // Active Theme အရောင် တွက်ချက်ခြင်း
     const isLight = document.body.classList.contains('light-mode');
     const activeColor = isLight ? '#eab308' : '#00f0ff';
     const trackBg = isLight ? '#e4e4e7' : 'rgba(255, 255, 255, 0.1)';
 
+    // Knob ရဲ့ ဘယ်ဘက်ကို အရောင်လင်းစေပြီး ညာဘက်ကို မီးမှိန်ပေးခြင်း
     volumeSlider.style.background = `linear-gradient(to right, ${activeColor} 0%, ${activeColor} ${percentage}%, ${trackBg} ${percentage}%, ${trackBg} 100%)`;
 }
 
@@ -130,6 +106,7 @@ function setTheme(isLight) {
         localStorage.setItem('theme', 'dark');
     }
     
+    // Theme ပြောင်းလိုက်လျှင် Slider Track Background အရောင်ပါ ချက်ချင်း update ပြုလုပ်ပေးခြင်း
     if (volumeSlider) {
         updateSliderProgress(volumeSlider.value);
     }
@@ -142,6 +119,7 @@ if (themeToggleBtn) {
     });
 }
 
+// Page Reload လုပ်ချိန်တွင် Saved Theme ပြန်ယူ၍ Slider Fill Sync ပြုလုပ်ခြင်း
 window.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme');
     const isLight = (savedTheme === 'light');
@@ -159,11 +137,14 @@ if (volumeSlider) {
     volumeSlider.addEventListener('input', (e) => {
         currentVolume = parseFloat(e.target.value);
         
+        // Progress Track Background Update ပြုလုပ်ခြင်း
         updateSliderProgress(currentVolume);
         
+        // Percent စာလုံး ပြောင်းရန်
         const percentage = Math.round(currentVolume * 100);
         if (volumeValue) volumeValue.textContent = `${percentage}%`;
         
+        // Icon အသံအတိုးအကျယ်အလိုက် ပြောင်းရန်
         if (volumeIcon) {
             if (percentage === 0) {
                 volumeIcon.textContent = '🔇';
