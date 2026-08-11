@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Great Inventors Academy - Array Cardio</title>
+
+  <!-- Google Fonts: Historical Serif & Modern Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="academy-wrapper">
+    <!-- Academy Header -->
+    <header class="academy-header">
+      <div class="crest-icon">📜</div>
+      <h1>The Great Inventors Academy</h1>
+      <p class="subtitle">Historical Array Challenge</p>
+    </header>
+
+    <main class="academy-grid">
+      <!-- Challenge Quiz Navigation -->
+      <section class="card quiz-nav">
+        <h2 class="section-title">🏛️ Academy Tasks</h2>
+        <div class="button-group">
+          <button onclick="runTask(1)">
+            <span class="step-num">01</span>
+            <span class="btn-text">Filter 1500s Scholars</span>
+          </button>
+          <button onclick="runTask(2)">
+            <span class="step-num">02</span>
+            <span class="btn-text">Map Full Names</span>
+          </button>
+          <button onclick="runTask(3)">
+            <span class="step-num">03</span>
+            <span class="btn-text">Sort Birth Chronology</span>
+          </button>
+          <button onclick="runTask(4)">
+            <span class="step-num">04</span>
+            <span class="btn-text">Total Lifespan Sum</span>
+          </button>
+          <button onclick="runTask(5)">
+            <span class="step-num">05</span>
+            <span class="btn-text">Sort Longest Lived</span>
+          </button>
+          <button onclick="runTask(7)">
+            <span class="step-num">06</span>
+            <span class="btn-text">Alphabetize Register</span>
+          </button>
+          <button onclick="runTask(8)">
+            <span class="step-num">07</span>
+            <span class="btn-text">Count Transport Fleet</span>
+          </button>
+          <button class="reset-btn" onclick="resetOutput()">
+            <span>↺ Reset Archive</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Scroll Archive Display -->
+      <section class="card archive-section">
+        <div class="archive-header">
+          <h2 id="task-title" class="task-title">Default Academy Archives</h2>
+          <span id="badge" class="wax-seal">Archive</span>
+        </div>
+        
+        <div id="display-area" class="display-area"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
