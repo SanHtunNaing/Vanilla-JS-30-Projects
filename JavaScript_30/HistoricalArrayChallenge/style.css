@@ -1,0 +1,292 @@
+:root {
+    --bg-color: #2b1e16;
+    --parchment-bg: #f9f3e6;
+    --card-border: #8c6d3f;
+    --text-ink: #2b1d0c;
+    --text-muted: #6e5843;
+    --gold-accent: #c59b27;
+    --gold-hover: #e0b438;
+    --seal-red: #8b1e1e;
+    --shadow-warm: 0 12px 30px rgba(0, 0, 0, 0.35);
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background: var(--bg-color) radial-gradient(circle, #3d2b1f 0%, #1e130c 100%);
+    color: var(--text-ink);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+  }
+  
+  .academy-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  /* Header Styling */
+  .academy-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: #f1e4d1;
+  }
+  
+  .crest-icon {
+    font-size: 3rem;
+    margin-bottom: 0.3rem;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+  }
+  
+  .academy-header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    letter-spacing: 1.5px;
+    color: var(--gold-accent);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+  }
+  
+  .academy-header .subtitle {
+    color: #c0ab93;
+    font-size: 0.95rem;
+    margin-top: 0.3rem;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Main Layout Grid */
+  .academy-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 1.8rem;
+  }
+  
+  @media (max-width: 820px) {
+    .academy-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .card {
+    background: var(--parchment-bg);
+    border: 3px double var(--card-border);
+    border-radius: 12px;
+    padding: 1.6rem;
+    box-shadow: var(--shadow-warm);
+    position: relative;
+  }
+  
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    color: var(--text-ink);
+    margin-bottom: 1.2rem;
+    border-bottom: 2px solid rgba(140, 109, 63, 0.3);
+    padding-bottom: 0.5rem;
+  }
+  
+  /* Button Navigation */
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  
+  button {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: #efe4d1;
+    color: var(--text-ink);
+    border: 1px solid var(--card-border);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  button .step-num {
+    font-family: 'Cinzel', serif;
+    background: var(--gold-accent);
+    color: #fff;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+  }
+  
+  button:hover {
+    background: #fdf8ed;
+    border-color: var(--gold-accent);
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(197, 155, 39, 0.25);
+  }
+  
+  button.reset-btn {
+    margin-top: 0.8rem;
+    background: #e2d2ba;
+    justify-content: center;
+    border-style: dashed;
+  }
+  
+  button.reset-btn:hover {
+    background: #dac7ab;
+    transform: none;
+  }
+  
+  /* Archive Output Panel */
+  .archive-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px dashed rgba(140, 109, 63, 0.4);
+  }
+  
+  .task-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    color: var(--text-ink);
+  }
+  
+  .wax-seal {
+    background: var(--seal-red);
+    color: #fff;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(139, 30, 30, 0.4);
+    letter-spacing: 1px;
+  }
+  
+  .display-area {
+    min-height: 380px;
+  }
+  
+  /* Item Animation Container */
+  .animated-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .item-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff8eb;
+    border: 1px solid rgba(140, 109, 63, 0.4);
+    padding: 0.9rem 1.2rem;
+    border-radius: 8px;
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 80px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+  
+  .item-card .name {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: var(--text-ink);
+  }
+  
+  .item-card .details {
+    display: flex;
+    gap: 0.6rem;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+  
+  .item-card .details span {
+    background: #f1e5d2;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    border: 1px solid rgba(140, 109, 63, 0.2);
+  }
+  
+  /* Animations: Fade & Collapse */
+  .item-card.fade-out {
+    opacity: 0;
+    transform: scale(0.9) translateY(-12px);
+    filter: blur(4px);
+  }
+  
+  .item-card.collapsed {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: -0.75rem;
+    border: none;
+    opacity: 0;
+  }
+  
+  .item-card.highlight {
+    border-color: var(--gold-accent);
+    background: #fffdf7;
+    box-shadow: 0 0 15px rgba(197, 155, 39, 0.3);
+  }
+  
+  /* Quiz Metric Card */
+  .metric-card {
+    text-align: center;
+    padding: 3.5rem 1rem;
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  .metric-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 4rem;
+    color: var(--seal-red);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .metric-card p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    font-family: 'Cinzel', serif;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Tags Container */
+  .tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.8rem;
+  }
+  
+  .tag {
+    background: #fff8eb;
+    border: 1px solid var(--card-border);
+    color: var(--text-ink);
+    padding: 0.5rem 0.9rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-family: 'Cinzel', serif;
+    transition: all 0.4s ease;
+  }
+  
+  .tag.fade-out {
+    opacity: 0;
+    transform: scale(0.7);
+  }
