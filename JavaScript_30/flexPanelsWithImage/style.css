@@ -1,0 +1,122 @@
+html {
+    box-sizing: border-box;
+    background: #ffc600;
+    font-family: 'Amatic SC', cursive;
+    font-size: 20px;
+    font-weight: 700;
+    scroll-behavior: smooth;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  body {
+    margin: 0;
+  }
+  
+  .panels {
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+  }
+  
+  .panel {
+    background: #6B0F1A;
+    box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.1);
+    color: white;
+    text-align: center;
+    align-items: center;
+    /* ပိတ်နေချိန်မှာပါ စာသားထင်ရှားစေရန် ပုံပေါ်တွင် မှောင်ရောင် အနည်းငယ်အုပ်ပေးခြင်း */
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.25);
+    background-size: cover;
+    background-position: center;
+    flex: 1;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    
+    /* Panel ပွင့်/ပိတ် သွားလာမှု ချောမွေ့စေရန် */
+    transition:
+      flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+      font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+      background-color 0.3s ease;
+  }
+  
+  /* ပုံများ သတ်မှတ်ခြင်း */
+  .panel1 { background-image: url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80); }
+  .panel2 { background-image: url(https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1000&q=80); }
+  .panel3 { background-image: url(https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=1000&q=80); }
+  .panel4 { background-image: url(https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80); }
+  .panel5 { background-image: url(https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1000&q=80); }
+  
+  /* Panel ထဲမှ စာသားများ Style ပြင်ဆင်ခြင်း */
+  .panel > * {
+    margin: 0;
+    width: 100%;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* စာသားကြီးမားပြီး အလွယ်တကူ မြင်သာစေရန် */
+    font-size: 2.2rem; 
+    letter-spacing: 2px;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8), 0 0 4px rgba(0, 0, 0, 0.9);
+  }
+  
+  /* ထိပ်နှင့် အောက်ခြေ စာသားများကို ဖျောက်ထားခြင်း */
+  .panel > *:first-child { 
+    transform: translateY(-100%); 
+    opacity: 0;
+  }
+  
+  .panel > *:last-child { 
+    transform: translateY(100%); 
+    opacity: 0;
+  }
+  
+  /* မူလအလယ်စာသားကို ပိုမိုထင်းစေခြင်း */
+  .panel > *:nth-child(2) {
+    font-size: 3rem;
+  }
+  
+  /* Panel ပွင့်သွားချိန် (Active State) */
+  .panel.open {
+    flex: 5;
+    background-color: rgba(0, 0, 0, 0); /* ပွင့်သွားချိန် ပုံကို ပိုမိုလင်းလက်စေခြင်း */
+  }
+  
+  .panel.open > *:nth-child(2) {
+    font-size: 4rem; /* Active ဖြစ်ချိန် အလယ်စာသားကို ပိုကြီးပေးခြင်း */
+  }
+  
+  .panel.open-active > *:first-child,
+  .panel.open-active > *:last-child {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  /* Hover effect: မောက်စ်တင်လိုက်ပါက Panel အနည်းငယ်ကျယ်လာပြီး Gradient မည်းတာ လျော့သွားစေရန် */
+.panel:hover {
+    flex: 1.5; /* မူလ flex: 1 ထက် အနည်းငယ်ကျယ်လာမည် */
+    background-color: rgba(0, 0, 0, 0.1); /* ပုံကို ပိုမိုလင်းလက်သွားစေရန် */
+  }
+  
+  /* Hover လုပ်ထားချိန်တွင် စာသားကို အနည်းငယ်ပိုကြီးစေရန် နှင့် လင်းသွားစေရန် */
+  .panel:hover > * {
+    opacity: 0.9;
+    transform: scale(1.08);
+  }
+  
+  /* Click လုပ်ပြီး Open ဖြစ်နေချိန်တွင် Hover Effect မပုန်းစေရန် */
+  .panel.open:hover {
+    flex: 5; /* Open ဖြစ်ထားလျှင် မူလအတိုင်း flex 5 ကို ထိန်းထားမည် */
+  }
+  
+  .panel.open:hover > * {
+    transform: scale(1); /* Open ဖြစ်ထားချိန်တွင် Hover Scale မလုပ်တော့ပါ */
+  }
