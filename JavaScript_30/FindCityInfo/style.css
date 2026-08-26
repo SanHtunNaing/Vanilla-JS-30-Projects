@@ -1,0 +1,152 @@
+html {
+    box-sizing: border-box;
+    background-color: #05140c;
+    /* Digital Map Coordinates Grid Effect */
+    background-image: 
+      linear-gradient(rgba(22, 219, 101, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(22, 219, 101, 0.08) 1px, transparent 1px);
+    background-size: 30px 30px;
+    font-family: 'helvetica neue', sans-serif;
+    font-size: 18px;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  .search-form {
+    max-width: 550px;
+    margin: 40px auto;
+  }
+  
+  input.search {
+    margin: 0;
+    text-align: center;
+    outline: 0;
+    width: 100%;
+    padding: 18px;
+    border: 2px solid #16db65;
+    border-radius: 8px;
+    font-size: 22px;
+    box-shadow: 0 0 15px rgba(22, 219, 101, 0.2);
+    background: #04151f;
+    color: #ffffff;
+  }
+  
+  .suggestions {
+    margin: 10px 0 0 0;
+    padding: 0;
+    list-style: none;
+    max-height: 350px;
+    overflow-y: auto;
+    border-radius: 8px;
+    border: 1px solid rgba(22, 219, 101, 0.2);
+  }
+  
+  .suggestions li {
+    background: #04151f;
+    color: #d1d5db;
+    border-bottom: 1px solid rgba(22, 219, 101, 0.15);
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s ease;
+  }
+  
+  .suggestions li:hover {
+    background: #0d2818;
+  }
+  
+  span.coords {
+    font-size: 13px;
+    color: #16db65;
+    background: rgba(22, 219, 101, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  
+  .hl {
+    background: #16db65;
+    color: #04151f;
+    font-weight: bold;
+    padding: 1px 4px;
+    border-radius: 3px;
+  }
+  
+  /* Selected Details Card */
+  .details-card {
+    margin-top: 15px;
+    padding: 18px;
+    background: #04151f;
+    border: 1px solid #16db65;
+    border-radius: 8px;
+    color: #fff;
+    display: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  }
+  
+  .details-card h3 {
+    margin: 0 0 10px 0;
+    color: #16db65;
+    font-size: 20px;
+  }
+  
+  .details-card p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #a0a0a0;
+  }
+
+  /* Fade & Slide Down Keyframes Animation */
+@keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* List Items Animation + Hover Effect */
+  .suggestions li {
+    background: #04151f;
+    color: #d1d5db;
+    border-bottom: 1px solid rgba(22, 219, 101, 0.15);
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    /* Modern Smooth Transition */
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: slideDown 0.3s ease-out forwards;
+  }
+  
+  /* Hover/Focus Visual Feedback */
+  .suggestions li:hover {
+    background: #0d2818;
+    border-left: 4px solid #16db65;
+    padding-left: 24px;
+    transform: scale(1.01);
+    box-shadow: 0 4px 12px rgba(22, 219, 101, 0.15);
+  }
+  
+  /* Details Card Appearance Animation */
+  .details-card {
+    margin-top: 15px;
+    padding: 18px;
+    background: #04151f;
+    border: 1px solid #16db65;
+    border-radius: 8px;
+    color: #fff;
+    display: none;
+    box-shadow: 0 0 20px rgba(22, 219, 101, 0.25);
+  
+    /* Card Pop-in Effect */
+    animation: slideDown 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
