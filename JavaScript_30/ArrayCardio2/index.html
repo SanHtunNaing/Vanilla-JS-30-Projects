@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS30 Array Cardio 2 - Rainbow Theme</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="background-animation"></div>
+
+  <div class="container">
+    <header class="header">
+      <h1 class="rainbow-text"><i class="fa-solid fa-code"></i> Array Cardio Day 2</h1>
+      <p>JavaScript 30 Challenge — Array Methods Demo</p>
+    </header>
+
+    <div class="grid-container">
+
+      <!-- Method 1: some() -->
+      <div class="card rainbow-border">
+        <div class="card-header">
+          <span class="badge blue">Array.prototype.some()</span>
+          <h2>Is at least one person >= 19?</h2>
+        </div>
+        <div class="card-body">
+          <p class="description">Checks if at least one element in the array passes the test.</p>
+          <button class="btn btn-rainbow" onclick="runSome()">
+            <i class="fa-solid fa-play"></i> Run Check
+          </button>
+          <div class="result-box" id="some-result">Click 'Run Check' to see result...</div>
+        </div>
+      </div>
+
+      <!-- Method 2: every() -->
+      <div class="card rainbow-border">
+        <div class="card-header">
+          <span class="badge purple">Array.prototype.every()</span>
+          <h2>Is everyone >= 19?</h2>
+        </div>
+        <div class="card-body">
+          <p class="description">Checks if all elements in the array pass the test.</p>
+          <button class="btn btn-rainbow" onclick="runEvery()">
+            <i class="fa-solid fa-play"></i> Run Check
+          </button>
+          <div class="result-box" id="every-result">Click 'Run Check' to see result...</div>
+        </div>
+      </div>
+
+      <!-- Method 3: find() -->
+      <div class="card rainbow-border">
+        <div class="card-header">
+          <span class="badge pink">Array.prototype.find()</span>
+          <h2>Find Comment ID: 822342</h2>
+        </div>
+        <div class="card-body">
+          <p class="description">Returns the value of the first element that satisfies the condition.</p>
+          <button class="btn btn-rainbow" onclick="runFind()">
+            <i class="fa-solid fa-magnifying-glass"></i> Find Comment
+          </button>
+          <div class="result-box" id="find-result">Click 'Find' to see result...</div>
+        </div>
+      </div>
+
+      <!-- Method 4: findIndex() & Delete -->
+      <div class="card rainbow-border">
+        <div class="card-header">
+          <span class="badge orange">Array.prototype.findIndex()</span>
+          <h2>Delete Comment ID: 822342</h2>
+        </div>
+        <div class="card-body">
+          <p class="description">Finds index and removes item using ES6 spread operator.</p>
+          <button class="btn btn-rainbow btn-danger" onclick="runFindIndex()">
+            <i class="fa-solid fa-trash"></i> Delete & Show Table
+          </button>
+          <div class="result-box" id="findindex-result">Click 'Delete' to view remaining list...</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Data Preview Section -->
+    <div class="data-preview card rainbow-border">
+      <h2><i class="fa-solid fa-database"></i> Source Data</h2>
+      <div class="data-tables">
+        <div>
+          <h3>People Array</h3>
+          <pre id="people-data"></pre>
+        </div>
+        <div>
+          <h3>Comments Array</h3>
+          <pre id="comments-data"></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
