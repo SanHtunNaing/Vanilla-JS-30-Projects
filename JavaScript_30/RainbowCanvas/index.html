@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS30 Day 8 - Energetic HTML5 Canvas</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Energetic Animated Background -->
+  <div class="bg-glow"></div>
+
+  <!-- Main Canvas -->
+  <canvas id="draw"></canvas>
+
+  <!-- Top Header UI -->
+  <header class="ui-header">
+    <h1 class="energetic-title">
+      <i class="fa-solid fa-wand-magic-sparkles"></i> Rainbow Canvas
+    </h1>
+    <p>Hold & drag mouse anywhere to paint energetic neon trails!</p>
+  </header>
+
+  <!-- Floating Energetic Control Bar -->
+  <div class="control-panel">
+    
+    <!-- Tool Toggle: Brush vs Eraser -->
+    <div class="control-group">
+      <button class="btn btn-outline active" id="brushBtn" title="Brush Tool">
+        <i class="fa-solid fa-paint-brush"></i> Brush
+      </button>
+      <button class="btn btn-outline" id="eraserBtn" title="Eraser Tool">
+        <i class="fa-solid fa-eraser"></i> Eraser
+      </button>
+    </div>
+
+    <!-- Color Selector -->
+    <div class="control-group" id="colorSection">
+      <label for="colorPicker" class="control-label"><i class="fa-solid fa-palette"></i> Color:</label>
+      <div class="color-picker-wrapper">
+        <input type="color" id="colorPicker" value="#00ffff">
+      </div>
+      <button class="btn-sm btn-outline" id="rainbowToggleBtn" title="Toggle Rainbow Mode">
+        <i class="fa-solid fa-rainbow"></i> Rainbow
+      </button>
+    </div>
+
+    <!-- Size Range Slider (Works for both Brush and Eraser) -->
+    <div class="control-group">
+      <label for="sizeSlider" class="control-label"><i class="fa-solid fa-circle"></i> Size:</label>
+      <input type="range" id="sizeSlider" min="5" max="150" value="50">
+      <span class="stat-badge" id="sizeVal">50px</span>
+    </div>
+
+    <!-- Blend Mode -->
+    <button class="btn btn-outline" id="modeBtn">
+      <i class="fa-solid fa-sliders"></i> Blend: <span id="blendMode">multiply</span>
+    </button>
+
+    <!-- Undo Button -->
+    <button class="btn btn-outline" id="undoBtn" title="Undo Last Stroke">
+      <i class="fa-solid fa-rotate-left"></i> Undo
+    </button>
+
+    <!-- Clear Canvas -->
+    <button class="btn btn-outline" id="clearBtn" title="Clear Canvas">
+      <i class="fa-solid fa-trash-can"></i> Clear
+    </button>
+
+    <!-- Save Image Button -->
+    <button class="btn btn-rainbow" id="saveBtn" title="Save Image">
+      <i class="fa-solid fa-download"></i> Save Art
+    </button>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
