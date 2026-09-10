@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>14 Dev Tools Tricks</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="container">
+    <header class="header">
+      <span class="badge"><i class="fa-solid fa-terminal"></i> JS DevTools Tricks</span>
+      <h1>14 Must-Know DevTools Tricks</h1>
+      <p>Click any trick below to run the code and see its detailed explanation!</p>
+      <div class="hint-box">
+        <i class="fa-solid fa-lightbulb"></i> Press <kbd>F12</kbd> or <kbd>Ctrl + Shift + I</kbd> to open Browser Console for live output!
+      </div>
+    </header>
+
+    <div class="grid">
+
+      <!-- Trick 1 -->
+      <div class="card" onclick="runTrick(1)">
+        <div class="card-icon"><i class="fa-solid fa-message"></i></div>
+        <h3>1. Regular Console</h3>
+        <p>Basic string output in console.</p>
+        <button class="btn">Test Trick</button>
+      </div>
+
+      <!-- Trick 2 -->
+      <div class="card" onclick="runTrick(2)">
+        <div class="card-icon"><i class="fa-solid fa-quote-left"></i></div>
+        <h3>2. Interpolated Log</h3>
+        <p>Using <code>%s</code> string replacement.</p>
+        <button class="btn">Test Trick</button>
+      </div>
+
+      <!-- Trick 3 -->
+      <div class="card" onclick="runTrick(3)">
+        <div class="card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <h3>3. Styled Console</h3>
+        <p>Custom CSS styles inside console.</p>
+        <button class="btn">Test Trick</button>
+      </div>
+
+      <!-- Trick 4 -->
+      <div class="card" onclick="runTrick(4)">
+        <div class="card-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+        <h3>4. Warning Log</h3>
+        <p>Display yellow alert warnings.</p>
+        <button class="btn">Test Trick</button>
+      </div>
+
+      <!-- Trick 5 -->
+      <div class="card" onclick="runTrick(5)">
+        <div class="card-icon"><i class="fa-solid fa-circle-xmark"></i></div>
+        <h3>5. Error Log</h3>
+        <p>Display red error messages with stack trace.</p>
+        <button class="btn">Test Trick</button>
+      </div>
+
+      <!-- Trick 6 -->
+      <div class="card" onclick="runTrick(6)">
+        <div class="card-icon"><i class="fa-solid fa-circle-info"></i></div>
+        <h3>6. Info Log</h3>
+        <p>Display informational log messages.</p>
+        <button class="btn">Test Trick</button>
+      </div>
+
+      <!-- Trick 7 -->
+      <div class="card" onclick="runTrick(7)">
+        <div class="card-icon"><i class="fa-solid fa-vial"></i></div>
+        <h3>7. Console Assert</h3>
+        <p>Log error only if condition is false.</p>
+        <button class="btn">Test Trick</button>
+      </div>
+
+      <!-- Trick 8 -->
+      <div class="card" onclick="runTrick(8)">
+        <div class="card-icon"><i class="fa-solid fa-broom"></i></div>
+        <h3>8. Clear Console</h3>
+        <p>Clears all existing logs in console.</p>
+        <button class="btn">Test Trick</button>
+      </div>
+
+      <!-- Trick 9 -->
+      <div class="card" onclick="runTrick(9)">
+        <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+        <h3>9. DOM Element View</h3>
+        <p>Compare <code>log()</code> vs <code>dir()</code>.</p>
+        <button class="btn">Test Trick</button>
+      </div>
+
+      <!-- Trick 10 -->
+      <div class="card" onclick="runTrick(10)">
+        <div class="card-icon"><i class="fa-solid fa-folder-tree"></i></div>
+        <h3>10. Grouping Logs</h3>
+        <p>Organize logs into collapsible groups.</p>
+        <button class="btn">Test Trick</button>
+      </div>
+
+      <!-- Trick 11 -->
+      <div class="card" onclick="runTrick(11)">
+        <div class="card-icon"><i class="fa-solid fa-hashtag"></i></div>
+        <h3>11. Counting</h3>
+        <p>Track execution count of specific labels.</p>
+        <button class="btn">Test Trick</button>
+      </div>
+
+      <!-- Trick 12 -->
+      <div class="card" onclick="runTrick(12)">
+        <div class="card-icon"><i class="fa-solid fa-stopwatch"></i></div>
+        <h3>12. Timing Operations</h3>
+        <p>Measure code execution time.</p>
+        <button class="btn">Test Trick</button>
+      </div>
+
+      <!-- Trick 13 -->
+      <div class="card" onclick="runTrick(13)">
+        <div class="card-icon"><i class="fa-solid fa-table"></i></div>
+        <h3>13. Table View</h3>
+        <p>Display arrays/objects as clean tables.</p>
+        <button class="btn">Test Trick</button>
+      </div>
+
+      <!-- Trick 14 -->
+      <div class="card" id="breakPointCard" onclick="runTrick(14)">
+        <div class="card-icon"><i class="fa-solid fa-bug"></i></div>
+        <h3>14. Attribute Breakpoint</h3>
+        <p>Inspect DOM mutation / element changes.</p>
+        <button class="btn">Change Element</button>
+      </div>
+
+    </div>
+
+    <!-- Active Trick Explanation & Terminal Box -->
+    <div class="detail-box" id="detailBox">
+      <div class="detail-header">
+        <h2 id="detailTitle"><i class="fa-solid fa-book-open"></i> Select a Trick to See Detailed Explanation</h2>
+      </div>
+      <div class="detail-body">
+        <div class="explanation-section">
+          <h4><i class="fa-solid fa-circle-info"></i> Detailed Explanation:</h4>
+          <p id="detailExplanation">Click any trick card above. A clear English explanation and practical use-case will appear here.</p>
+          <div class="code-preview" id="detailCode">// Code example will appear here</div>
+        </div>
+
+        <!-- Terminal Output -->
+        <div class="console-box">
+          <div class="console-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="console-title">Live Terminal Output</span>
+          </div>
+          <div class="console-body" id="screenConsole">
+            <span class="log-line text-muted">> Ready. Waiting for interaction...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
