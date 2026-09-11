@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strawberry Checkboxes - Eisenhower Matrix</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Header -->
+    <header class="header">
+      <div class="header-badge">
+        <i class="fa-solid fa-seedling"></i> JS CHECKBOXES
+      </div>
+      <h1><i class="fa-solid fa-strawberry"></i> Strawberry Checkboxes</h1>
+      <p>Organize your tasks with the Eisenhower Matrix & Shift-click multiple items!</p>
+      
+      <div class="hint-banner">
+        <i class="fa-solid fa-keyboard"></i>
+        Hold <kbd>Shift</kbd> and click two checkboxes to select/unselect everything in between!
+      </div>
+    </header>
+
+    <!-- Custom Todo Creator -->
+    <div class="add-todo-card">
+      <form class="add-todo-form" id="addTodoForm">
+        <div class="input-group">
+          <i class="fa-solid fa-pen-nib"></i>
+          <input type="text" id="taskInput" placeholder="Add a sweet task..." required>
+        </div>
+        <div class="select-group">
+          <select id="categorySelect" aria-label="Select a task category">
+            <option value="q1">🔥 Do First (Urgent & Important)</option>
+            <option value="q2">📅 Schedule (Not Urgent & Important)</option>
+            <option value="q3">⚡ Delegate (Urgent & Not Important)</option>
+            <option value="q4" selected>🧹 Eliminate (Not Urgent & Not Important)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-add">
+          <i class="fa-solid fa-plus"></i> Add Task
+        </button>
+      </form>
+    </div>
+
+    <!-- Eisenhower Matrix Quadrants -->
+    <div class="matrix-grid">
+
+      <!-- Quadrant 1 -->
+      <div class="quadrant q1">
+        <div class="q-header">
+          <h2><i class="fa-solid fa-fire"></i> Do First</h2>
+          <span class="q-badge">Urgent & Important</span>
+        </div>
+        <ul class="todo-list" id="list-q1"></ul>
+      </div>
+
+      <!-- Quadrant 2 -->
+      <div class="quadrant q2">
+        <div class="q-header">
+          <h2><i class="fa-solid fa-calendar-check"></i> Schedule</h2>
+          <span class="q-badge">Not Urgent & Important</span>
+        </div>
+        <ul class="todo-list" id="list-q2"></ul>
+      </div>
+
+      <!-- Quadrant 3 -->
+      <div class="quadrant q3">
+        <div class="q-header">
+          <h2><i class="fa-solid fa-bolt"></i> Delegate</h2>
+          <span class="q-badge">Urgent & Not Important</span>
+        </div>
+        <ul class="todo-list" id="list-q3"></ul>
+      </div>
+
+      <!-- Quadrant 4 -->
+      <div class="quadrant q4">
+        <div class="q-header">
+          <h2><i class="fa-solid fa-leaf"></i> Eliminate</h2>
+          <span class="q-badge">Not Urgent & Not Important</span>
+        </div>
+        <ul class="todo-list" id="list-q4"></ul>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
