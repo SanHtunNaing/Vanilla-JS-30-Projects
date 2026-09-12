@@ -1,0 +1,156 @@
+:root {
+    --primary-color: #ff0055;
+    --bg-overlay: rgba(0, 0, 0, 0.6);
+    --text-color: #ffffff;
+    --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background: #0f172a;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-family);
+    color: var(--text-color);
+  }
+  
+  .player-container {
+    max-width: 850px;
+    width: 90%;
+    position: relative;
+    font-size: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+    background: #000;
+  }
+  
+  .player-container:focus {
+    outline: 2px solid var(--primary-color);
+  }
+  
+  .player__video {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    display: block;
+  }
+  
+  /* Controls Container */
+  .player__controls {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .player-container:hover .player__controls,
+  .player-container:focus-within .player__controls {
+    transform: translateY(0);
+  }
+  
+  /* Progress Bar */
+  .progress {
+    position: relative;
+    display: flex;
+    flex: 1;
+    height: 6px;
+    transition: height 0.1s;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  
+  .progress:hover {
+    height: 10px;
+  }
+  
+  .progress__filled {
+    width: 0%;
+    background: var(--primary-color);
+    flex-basis: 0%;
+    transition: flex-basis 0.1s linear;
+  }
+  
+  /* Control Layout */
+  .controls__main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+  }
+  
+  .controls__left, .controls__right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .player__button {
+    background: none;
+    border: 0;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.2s, transform 0.1s;
+  }
+  
+  .player__button:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+  }
+  
+  .player__time {
+    font-size: 13px;
+    color: #cbd5e1;
+    font-variant-numeric: tabular-nums;
+  }
+  
+  .control__group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  /* Custom Range Inputs */
+  .player__slider {
+    width: 80px;
+    height: 4px;
+    appearance: none;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .player__slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+  }
+  
+  .speed-label {
+    font-size: 12px;
+    color: #cbd5e1;
+    width: 24px;
+  }
