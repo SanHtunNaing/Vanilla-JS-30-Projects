@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konami Code Sequence Detector - Pro</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Canvas for Confetti Fireworks -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <main class="app-container">
+    <div class="card">
+      <div class="badge-status" id="statusBadge">
+        <i class="fa-solid fa-lock"></i> SECRET LOCKED
+      </div>
+
+      <h1 class="title">Konami Code Detector</h1>
+      <p class="subtitle">Enter the secret key sequence to unlock the developer easter egg.</p>
+
+      <!-- Target Sequence Hint -->
+      <div class="target-sequence">
+        <span class="key-hint"><i class="fa-solid fa-arrow-up"></i></span>
+        <span class="key-hint"><i class="fa-solid fa-arrow-up"></i></span>
+        <span class="key-hint"><i class="fa-solid fa-arrow-down"></i></span>
+        <span class="key-hint"><i class="fa-solid fa-arrow-down"></i></span>
+        <span class="key-hint"><i class="fa-solid fa-arrow-left"></i></span>
+        <span class="key-hint"><i class="fa-solid fa-arrow-right"></i></span>
+        <span class="key-hint"><i class="fa-solid fa-arrow-left"></i></span>
+        <span class="key-hint"><i class="fa-solid fa-arrow-right"></i></span>
+        <span class="key-hint">B</span>
+        <span class="key-hint">A</span>
+      </div>
+
+      <!-- Live Pressed Keys Visualizer -->
+      <div class="pressed-keys-container">
+        <span class="label">Your Sequence Buffer:</span>
+        <div class="key-stream" id="keyStream">
+          <span class="placeholder-text">Press any key to start...</span>
+        </div>
+      </div>
+
+      <!-- Unlocked Easter Egg Content (Hidden by default) -->
+      <div class="unlocked-content hidden" id="unlockedContent">
+        <div class="glow-box">
+          <i class="fa-solid fa-trophy trophy-icon"></i>
+          <h2>CHEATS ACTIVATED!</h2>
+          <p>You have successfully unlocked the secret mode.</p>
+          <button class="reset-btn" id="resetBtn">
+            <i class="fa-solid fa-rotate-right"></i> Lock Again
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- JS Canvas Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
