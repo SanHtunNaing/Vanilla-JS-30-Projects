@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reference vs Copy Lab</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="lab-container">
+    <header class="header">
+      <h1 class="glow-title"><i class="fa-solid fa-atom pulse-icon"></i> Reference vs Copy Playground</h1>
+      <p class="subtitle">Understand how JavaScript handles Memory, Pointers, and Mutability.</p>
+    </header>
+
+    <section class="guide-card">
+      <h2><i class="fa-solid fa-book-open"></i> Study Guide: Key Concepts</h2>
+      <div class="guide-grid">
+        <div class="guide-item">
+          <h3><span class="badge ref">Reference</span> Memory Pointer</h3>
+          <p>Assigning an Object or Array (<code>b = a</code>) does not copy data. Both point to the same memory.</p>
+        </div>
+        <div class="guide-item">
+          <h3><span class="badge shallow">Shallow Copy</span> 1-Level Copy</h3>
+          <p>Methods like <code>[...arr]</code> copy 1 level. Inner nested objects still share memory.</p>
+        </div>
+        <div class="guide-item">
+          <h3><span class="badge deep">Deep Copy</span> Full Isolation</h3>
+          <p>Methods like <code>structuredClone()</code> copy all nested levels completely.</p>
+        </div>
+      </div>
+    </section>
+
+    <main class="grid">
+      <div class="card neon-card">
+        <h2><i class="fa-solid fa-list-check"></i> Array Operations</h2>
+        <div class="code-box"><code>const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];</code></div>
+        <div class="btn-group">
+          <button onclick="runArrayRef()" class="btn btn-purple-glow">
+            <span>Assign Reference</span>
+            <small>team = players</small>
+          </button>
+          <button onclick="runArrayCopy()" class="btn btn-neon-glow">
+            <span>Spread Copy</span>
+            <small>team = [...players]</small>
+          </button>
+        </div>
+      </div>
+
+      <div class="card neon-card">
+        <h2><i class="fa-solid fa-cubes"></i> Object Operations</h2>
+        <div class="code-box"><code>const person = { name: 'Wes', social: { twitter: '@wesbos' } };</code></div>
+        <div class="btn-group">
+          <button onclick="runObjRef()" class="btn btn-purple-glow">
+            <span>Assign Reference</span>
+            <small>cap = person</small>
+          </button>
+          <button onclick="runObjShallow()" class="btn btn-outline-glow">
+            <span>Shallow Copy</span>
+            <small>Object.assign({}, person)</small>
+          </button>
+          <button onclick="runObjDeep()" class="btn btn-neon-glow">
+            <span>Deep Copy</span>
+            <small>structuredClone(person)</small>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <section class="card terminal-card">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <span class="terminal-title"><i class="fa-solid fa-terminal"></i> Live Memory Inspector</span>
+        <button onclick="resetState()" class="btn-reset"><i class="fa-solid fa-rotate-right"></i> Reset</button>
+      </div>
+
+      <div class="output-grid">
+        <div class="out-box">
+          <span class="label">Original Data (State)</span>
+          <pre id="outOriginal">Loading...</pre>
+        </div>
+        <div class="out-box">
+          <span class="label">Target Variable (Mutated)</span>
+          <pre id="outTarget">Loading...</pre>
+        </div>
+      </div>
+
+      <div id="statusToast" class="toast-box">
+        <i class="fa-solid fa-circle-info"></i> Click any action button above to test memory mutation.
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
