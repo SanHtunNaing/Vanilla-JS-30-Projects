@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+
+:root {
+  --bg-dark: #0a0512;
+  --card-bg: rgba(23, 12, 42, 0.7);
+  --primary-purple: #a855f7;
+  --neon-purple: #d8b4fe;
+  --deep-purple: #6b21a8;
+  --neon-pink: #f43f5e;
+  --neon-cyan: #06b6d4;
+  --text-main: #f3e8ff;
+  --text-muted: #a78bfa;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  background: var(--bg-dark);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 15px;
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(168, 85, 247, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(107, 33, 168, 0.2) 0%, transparent 40%);
+}
+
+.lab-container {
+  width: 100%;
+  max-width: 950px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Header Animation */
+.header {
+  text-align: center;
+}
+
+.glow-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
+}
+
+.pulse-icon {
+  color: var(--primary-purple);
+  animation: pulse 2s infinite alternate;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Study Guide Box */
+.guide-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 16px;
+  padding: 20px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.guide-card h2 {
+  font-size: 16px;
+  color: var(--neon-purple);
+  margin-bottom: 15px;
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.guide-item {
+  background: rgba(10, 5, 18, 0.6);
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.guide-item p {
+  font-size: 12px;
+  color: #d8b4fe;
+  line-height: 1.5;
+  margin-top: 8px;
+}
+
+.badge {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  margin-right: 5px;
+}
+
+.badge.ref { background: rgba(244, 63, 94, 0.2); color: #f43f5e; border: 1px solid #f43f5e; }
+.badge.shallow { background: rgba(6, 182, 212, 0.2); color: #06b6d4; border: 1px solid #06b6d4; }
+.badge.deep { background: rgba(168, 85, 247, 0.2); color: #a855f7; border: 1px solid #a855f7; }
+
+/* Grid Cards */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+.neon-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: 16px;
+  padding: 20px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.neon-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(168, 85, 247, 0.6);
+}
+
+.neon-card h2 {
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.code-box {
+  background: #05020a;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+  color: var(--neon-purple);
+  margin-bottom: 15px;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+/* Glowing Buttons */
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn {
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn span { font-weight: 700; font-size: 13px; }
+.btn small { font-family: 'Fira Code', monospace; font-size: 11px; opacity: 0.8; margin-top: 2px; }
+
+.btn-purple-glow {
+  background: linear-gradient(135deg, #6b21a8, #a855f7);
+  color: white;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+}
+
+.btn-purple-glow:hover {
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.7);
+  transform: scale(1.02);
+}
+
+.btn-neon-glow {
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  color: white;
+  box-shadow: 0 0 15px rgba(236, 72, 153, 0.3);
+}
+
+.btn-neon-glow:hover {
+  box-shadow: 0 0 25px rgba(236, 72, 153, 0.7);
+  transform: scale(1.02);
+}
+
+.btn-outline-glow {
+  background: transparent;
+  color: var(--neon-purple);
+  border: 1px solid var(--primary-purple);
+}
+
+.btn-outline-glow:hover {
+  background: rgba(168, 85, 247, 0.15);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+}
+
+/* Terminal Card */
+.terminal-card {
+  background: #05020a;
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.15);
+}
+
+.terminal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 12px;
+  margin-bottom: 15px;
+}
+
+.terminal-dots { display: flex; gap: 6px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+
+.terminal-title { font-size: 13px; color: var(--text-muted); font-weight: 600; }
+
+.btn-reset {
+  background: rgba(244, 63, 94, 0.2);
+  color: var(--neon-pink);
+  border: 1px solid var(--neon-pink);
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: 0.2s;
+}
+
+.btn-reset:hover { background: var(--neon-pink); color: white; }
+
+.output-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.out-box {
+  background: rgba(23, 12, 42, 0.5);
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+.out-box .label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 8px;
+}
+
+pre {
+  font-family: 'Fira Code', monospace;
+  font-size: 13px;
+  color: #38bdf8;
+  white-space: pre-wrap;
+}
+
+.toast-box {
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  color: var(--neon-purple);
+  font-size: 13px;
+}
+
+@keyframes pulse {
+  from { transform: scale(1); filter: drop-shadow(0 0 2px var(--primary-purple)); }
+  to { transform: scale(1.1); filter: drop-shadow(0 0 10px var(--neon-purple)); }
+}
+
