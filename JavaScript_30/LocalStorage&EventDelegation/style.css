@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Fira+Code:wght@400;600&display=swap');
+
+:root {
+  --bg-dark: #0a0512;
+  --card-bg: rgba(23, 12, 42, 0.75);
+  --primary-purple: #a855f7;
+  --neon-purple: #d8b4fe;
+  --neon-pink: #ec4899;
+  --neon-cyan: #06b6d4;
+  --text-main: #f3e8ff;
+  --text-muted: #a78bfa;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  background: var(--bg-dark);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 15px;
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(168, 85, 247, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 40%);
+}
+
+.lab-container {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header {
+  text-align: center;
+}
+
+.glow-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 1px;
+  text-shadow: 0 0 15px rgba(168, 85, 247, 0.6);
+}
+
+.pulse-icon {
+  color: var(--primary-purple);
+  margin-right: 8px;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+/* Study Guide Box */
+.guide-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 16px;
+  padding: 18px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.guide-card h2 {
+  font-size: 15px;
+  color: var(--neon-purple);
+  margin-bottom: 12px;
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.guide-item {
+  background: rgba(10, 5, 18, 0.6);
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.guide-item p {
+  font-size: 12px;
+  color: #d8b4fe;
+  line-height: 1.5;
+  margin-top: 6px;
+}
+
+.guide-item code {
+  font-family: 'Fira Code', monospace;
+  background: rgba(168, 85, 247, 0.2);
+  padding: 1px 4px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.badge {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 6px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  margin-right: 6px;
+}
+
+.badge.storage { background: rgba(236, 72, 153, 0.2); color: #ec4899; border: 1px solid #ec4899; }
+.badge.delegation { background: rgba(6, 182, 212, 0.2); color: #06b6d4; border: 1px solid #06b6d4; }
+
+/* Menu Card */
+.menu-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 16px;
+  padding: 25px;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.plates {
+  list-style: none;
+  margin-bottom: 20px;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.plates li {
+  display: flex;
+  align-items: center;
+  padding: 12px 10px;
+  border-bottom: 1px solid rgba(168, 85, 247, 0.15);
+  font-size: 15px;
+}
+
+.plates input[type="checkbox"] {
+  display: none;
+}
+
+.plates label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  color: var(--text-main);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.plates label::before {
+  content: '⬜';
+  margin-right: 12px;
+  font-size: 16px;
+}
+
+.plates input[type="checkbox"]:checked + label::before {
+  content: '🌮';
+}
+
+.plates input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+/* Input Form */
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  flex: 1;
+  background: rgba(10, 5, 18, 0.8);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  padding: 12px 15px;
+  border-radius: 10px;
+  color: #fff;
+  outline: none;
+  font-size: 14px;
+}
+
+input[type="text"]:focus {
+  border-color: var(--neon-purple);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
+}
+
+.btn-neon-glow {
+  background: linear-gradient(135deg, var(--primary-purple), var(--neon-pink));
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+
+.btn-neon-glow:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(236, 72, 153, 0.5);
+}
+
+/* Actions */
+.controls-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 15px;
+}
+
+.btn-action {
+  background: rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  color: var(--neon-purple);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-action:hover {
+  background: rgba(168, 85, 247, 0.3);
+  color: #fff;
+}
+
+.btn-action.danger {
+  background: rgba(244, 63, 94, 0.15);
+  border-color: rgba(244, 63, 94, 0.3);
+  color: #fda4af;
+}
+
+.btn-action.danger:hover {
+  background: rgba(244, 63, 94, 0.3);
+  color: #fff;
+}
+
+/* Study Guide Box */
+.guide-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 16px;
+    padding: 20px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .guide-card h2 {
+    font-size: 16px;
+    color: var(--neon-purple);
+  }
+  
+  .guide-section {
+    background: rgba(10, 5, 18, 0.6);
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .guide-section h3 {
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .guide-section p {
+    font-size: 12px;
+    color: #d8b4fe;
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+  
+  .guide-list, .guide-flow {
+    font-size: 12px;
+    color: var(--text-main);
+    padding-left: 18px;
+    line-height: 1.6;
+  }
+  
+  .guide-list li, .guide-flow li {
+    margin-bottom: 4px;
+  }
+  
+  .guide-section code {
+    font-family: 'Fira Code', monospace;
+    background: rgba(168, 85, 247, 0.25);
+    padding: 2px 5px;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 11px;
+  }
+  
+  .badge {
+    font-size: 10px;
+    font-weight: 800;
+    padding: 3px 6px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    margin-right: 8px;
+  }
+  
+  .badge.storage { background: rgba(236, 72, 153, 0.2); color: #ec4899; border: 1px solid #ec4899; }
+  .badge.delegation { background: rgba(6, 182, 212, 0.2); color: #06b6d4; border: 1px solid #06b6d4; }
+  .badge.flow { background: rgba(168, 85, 247, 0.2); color: #a855f7; border: 1px solid #a855f7; }
