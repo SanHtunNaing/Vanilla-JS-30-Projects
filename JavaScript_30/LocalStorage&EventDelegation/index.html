@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LocalStorage Tapas Lab</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="lab-container">
+    
+    <!-- Hero Header -->
+    <header class="header">
+      <h1 class="glow-title"><i class="fa-solid fa-utensils pulse-icon"></i> LOCAL STORAGE TAPAS</h1>
+      <p class="subtitle">Persist your data with LocalStorage & Event Delegation</p>
+    </header>
+
+    <!-- Detailed English Study Guide -->
+    <section class="guide-card">
+      <h2><i class="fa-solid fa-book-open"></i> Deep Dive Study Guide</h2>
+      
+      <div class="guide-section">
+        <h3><span class="badge storage">1. LocalStorage</span> Data Persistence</h3>
+        <p>In-memory JavaScript variables (e.g., <code>let items = []</code>) clear out as soon as the page is reloaded. LocalStorage allows us to save data across browser sessions.</p>
+        <ul class="guide-list">
+          <li><strong>Key-Value Pair:</strong> Stores data as key-value pairs inside the browser.</li>
+          <li><strong>Strings Only:</strong> LocalStorage can only store plain text/strings. Direct object storage results in corrupted data like <code>[object Object]</code>.</li>
+          <li><strong><code>JSON.stringify()</code>:</strong> Converts JavaScript objects or arrays into a JSON string before saving: <code>localStorage.setItem('items', JSON.stringify(items))</code></li>
+          <li><strong><code>JSON.parse()</code>:</strong> Converts stored JSON strings back into usable JS objects/arrays: <code>JSON.parse(localStorage.getItem('items'))</code></li>
+        </ul>
+      </div>
+
+      <div class="guide-section">
+        <h3><span class="badge delegation">2. Event Delegation</span> Listening on Parent</h3>
+        <p><strong>The Problem:</strong> When the page loads, dynamic child elements (e.g., <code>&lt;li&gt;</code> or <code>&lt;input&gt;</code>) don't exist yet, so attaching direct event listeners directly to them fails.</p>
+        <p><strong>The Solution:</strong> Attach a single listener to a permanent parent element (<code>&lt;ul class="plates"&gt;</code>) instead.</p>
+        <ul class="guide-list">
+          <li><strong>Event Bubbling:</strong> Clicks on child elements bubble up to the parent element (<code>&lt;ul&gt;</code>).</li>
+          <li><strong>Target Inspection:</strong> The parent checks <code>e.target</code> to see exactly which element fired the event.</li>
+          <li><strong>Pattern Match:</strong> <code>e.target.matches('input')</code> verifies if the clicked element is specifically an <code>&lt;input&gt;</code> (checkbox).</li>
+        </ul>
+      </div>
+
+      <div class="guide-section">
+        <h3><span class="badge flow">Data Flow</span> Execution Lifecycle</h3>
+        <ol class="guide-flow">
+          <li>User submits item &rarr; Pushed to <code>items</code> array.</li>
+          <li>Saved &rarr; <code>localStorage.setItem('items', JSON.stringify(items))</code></li>
+          <li>Rendered &rarr; <code>populateList()</code> builds HTML inside <code>&lt;ul&gt;</code>.</li>
+          <li>Toggled &rarr; Event Delegation catches click on <code>&lt;ul&gt;</code>, updates <code>items[index].done</code>, and syncs LocalStorage.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Main Workspace -->
+    <main class="menu-card">
+      <ul class="plates" id="platesList">
+        <li>Loading Tapas...</li>
+      </ul>
+
+      <form class="add-items" id="addItemsForm">
+        <div class="input-group">
+          <input type="text" name="item" placeholder="Item Name (e.g. Tacos)" required autocomplete="off">
+          <button type="submit" class="btn btn-neon-glow">+ Add Item</button>
+        </div>
+      </form>
+
+      <div class="controls-group">
+        <button id="checkAllBtn" class="btn-action"><i class="fa-solid fa-check-double"></i> Check All</button>
+        <button id="uncheckAllBtn" class="btn-action"><i class="fa-solid fa-square"></i> Uncheck All</button>
+        <button id="clearAllBtn" class="btn-action danger"><i class="fa-solid fa-trash-can"></i> Clear All</button>
+      </div>
+    </main>
+
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
