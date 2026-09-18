@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 16 - Mouse Move Shadow Lab</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="hero" id="hero">
+    
+    <!-- Study Guide Toggle Button -->
+    <button id="toggleGuideBtn" class="guide-toggle-btn">
+      <i class="fa-solid fa-book-open"></i> Study Guide
+    </button>
+
+    <!-- Collapsible Study Guide Container -->
+    <section class="guide-card hidden" id="guideCard">
+      <h2><i class="fa-solid fa-book-open"></i> Deep Dive Study Guide</h2>
+      
+      <div class="guide-section">
+        <h3><span class="badge offset">1. Offset & Target</span> Coordinates Calculation</h3>
+        <p><code>e.offsetX</code> and <code>e.offsetY</code> return mouse coordinates relative to the targeted element. When hovering over inner elements (e.g., <code>&lt;h1&gt;</code>), <code>this</code> stays as <code>.hero</code>, but <code>e.target</code> shifts. We normalize coordinates by adding <code>target.offsetLeft</code> and <code>target.offsetTop</code>.</p>
+      </div>
+
+      <div class="guide-section">
+        <h3><span class="badge math">2. Dynamic Math</span> Shadow Displacement</h3>
+        <p>We calculate maximum displacement (walk radius) relative to window width and height. Centering the origin at (0,0) requires shifting coordinates by half width/height: <code>(x / width * walk) - (walk / 2)</code>.</p>
+      </div>
+    </section>
+
+    <!-- Glowing Interactive Text -->
+    <h1 id="text" contenteditable="true">🔥 WOAH!</h1>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
