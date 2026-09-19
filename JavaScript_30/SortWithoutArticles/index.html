@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 17 - Sort Without Articles</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="lab-container">
+    
+    <!-- Hero Header -->
+    <header class="header">
+      <h1 class="title"><i class="fa-solid fa-music"></i> Sort Without Articles</h1>
+      <p class="subtitle">Alphabetical sorting while ignoring "A", "An", and "The"</p>
+      
+      <!-- Action Buttons -->
+      <div class="btn-group">
+        <button id="sortBtn" class="btn-action primary">
+          <i class="fa-solid fa-arrow-down-a-z"></i> <span>Sort Bands</span>
+        </button>
+        <button id="resetBtn" class="btn-action reset">
+          <i class="fa-solid fa-rotate-left"></i> <span>Reset</span>
+        </button>
+        <button id="toggleGuideBtn" class="btn-action secondary">
+          <i class="fa-solid fa-book-open"></i> <span>Study Guide</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Collapsible Study Guide -->
+    <section class="guide-card hidden" id="guideCard">
+      <h2><i class="fa-solid fa-graduation-cap"></i> Deep Dive Study Guide</h2>
+      
+      <div class="guide-section">
+        <h3><span class="badge regex">1. Regular Expressions</span> Strip Articles</h3>
+        <p>We use Regex <code>/^(a |an |the )/i</code> to match leading articles. The <code>^</code> anchor targets the start of the string, and <code>i</code> makes it case-insensitive.</p>
+      </div>
+
+      <div class="guide-section">
+        <h3><span class="badge sort">2. State Reset</span> Restore Original Order</h3>
+        <p>Clicking <strong>Reset</strong> renders the unmodified array, while <strong>Sort Bands</strong> applies <code>sort()</code> using a stripped string comparison.</p>
+      </div>
+    </section>
+
+    <!-- Bands List Workspace -->
+    <main class="list-card">
+      <ul id="bands" class="bands-list">
+        <!-- Rendered via JS -->
+      </ul>
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
