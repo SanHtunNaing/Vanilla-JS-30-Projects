@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 18 - Tally String Times with Reduce</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="lab-container">
+    
+    <!-- Hero Header -->
+    <header class="header">
+      <h1 class="title"><i class="fa-solid fa-stopwatch"></i> Tally String Times</h1>
+      <p class="subtitle">Extracting and reducing video durations into total time</p>
+      
+      <!-- Action Buttons -->
+      <div class="btn-group">
+        <button id="tallyBtn" class="btn-action primary">
+          <i class="fa-solid fa-calculator"></i> <span>Tally Total Time</span>
+        </button>
+        <button id="resetBtn" class="btn-action reset">
+          <i class="fa-solid fa-rotate-left"></i> <span>Reset</span>
+        </button>
+        <button id="toggleGuideBtn" class="btn-action secondary">
+          <i class="fa-solid fa-book-open"></i> <span>Study Guide</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Collapsible Study Guide -->
+    <section class="guide-card hidden" id="guideCard">
+      <h2><i class="fa-solid fa-graduation-cap"></i> Deep Dive Study Guide</h2>
+      
+      <div class="guide-section">
+        <h3><span class="badge map">1. NodeList to Array</span> Array.from()</h3>
+        <p><code>document.querySelectorAll()</code> returns a NodeList. We use <code>Array.from()</code> or spread syntax <code>[...nodes]</code> to enable array methods like <code>.map()</code> and <code>.reduce()</code>.</p>
+      </div>
+
+      <div class="guide-section">
+        <h3><span class="badge reduce">2. String to Seconds</span> Map & Reduce</h3>
+        <p>We split time strings (<code>"5:43"</code>) into minutes and seconds, convert them to total seconds via <code>parseFloat()</code>, and sum them using <code>.reduce((total, secs) => total + secs, 0)</code>.</p>
+      </div>
+
+      <div class="guide-section">
+        <h3><span class="badge math">3. Modulo Math</span> Breaking Down Total Seconds</h3>
+        <p>Using <code>Math.floor()</code> and the modulo operator (<code>%</code>), we convert cumulative seconds back into <strong>HH:MM:SS</strong> format.</p>
+      </div>
+    </section>
+
+    <!-- Total Display Banner -->
+    <div id="totalDisplay" class="total-banner hidden">
+      <i class="fa-solid fa-clock"></i> Total Duration: <span id="timeResult">00:00:00</span>
+    </div>
+
+    <!-- Video Playlist List -->
+    <main class="list-card">
+      <ul class="videos-list">
+        <li data-time="5:43"><i class="fa-regular fa-circle-play"></i> Video 1 <span>5:43</span></li>
+        <li data-time="2:33"><i class="fa-regular fa-circle-play"></i> Video 2 <span>2:33</span></li>
+        <li data-time="3:45"><i class="fa-regular fa-circle-play"></i> Video 3 <span>3:45</span></li>
+        <li data-time="0:47"><i class="fa-regular fa-circle-play"></i> Video 4 <span>0:47</span></li>
+        <li data-time="5:21"><i class="fa-regular fa-circle-play"></i> Video 5 <span>5:21</span></li>
+        <li data-time="6:56"><i class="fa-regular fa-circle-play"></i> Video 6 <span>6:56</span></li>
+        <li data-time="3:46"><i class="fa-regular fa-circle-play"></i> Video 7 <span>3:46</span></li>
+        <li data-time="5:25"><i class="fa-regular fa-circle-play"></i> Video 8 <span>5:25</span></li>
+        <li data-time="3:14"><i class="fa-regular fa-circle-play"></i> Video 9 <span>3:14</span></li>
+        <li data-time="3:31"><i class="fa-regular fa-circle-play"></i> Video 10 <span>3:31</span></li>
+      </ul>
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
