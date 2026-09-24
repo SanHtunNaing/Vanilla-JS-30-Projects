@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 19 - Cyberpunk Webcam Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="studio-container">
+    
+    <!-- Cyberpunk Header -->
+    <header class="header">
+      <h1 class="title"><i class="fa-solid fa-camera-retro"></i> WEBCAM LAB</h1>
+      <p class="subtitle">Real-time video processing & custom filters</p>
+
+      <div class="btn-group">
+        <button id="snapBtn" class="btn-action primary">
+          <i class="fa-solid fa-camera"></i> <span>Take Photo</span>
+        </button>
+        <button id="toggleGuideBtn" class="btn-action secondary">
+          <i class="fa-solid fa-book-open"></i> <span>Study Guide</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Collapsible Study Guide -->
+    <section class="guide-card hidden" id="guideCard">
+      <h2><i class="fa-solid fa-graduation-cap"></i> Deep Dive Study Guide</h2>
+      
+      <div class="guide-section">
+        <h3><span class="badge media">1. MediaDevices</span> navigator.mediaDevices.getUserMedia()</h3>
+        <p>Requests permission to access the webcam video stream. The returned stream is attached directly to the HTML5 <code>&lt;video&gt;</code> element.</p>
+      </div>
+
+      <div class="guide-section">
+        <h3><span class="badge canvas">2. Canvas Rendering</span> ctx.drawImage()</h3>
+        <p>Continuously paints video frames onto an HTML5 <code>&lt;canvas&gt;</code> element. Pixel manipulations (Red Split, Green Screen) modify raw RGBA image data array buffers.</p>
+      </div>
+    </section>
+
+    <!-- Control Panel Filters -->
+    <div class="controls-panel">
+      <div class="filter-group">
+        <label><i class="fa-solid fa-sliders"></i> Filter Effects:</label>
+        <button class="btn-filter active" data-filter="normal">Normal</button>
+        <button class="btn-filter" data-filter="redsplit">Red Split</button>
+        <button class="btn-filter" data-filter="rgbshift">RGB Shift</button>
+      </div>
+    </div>
+
+    <!-- Main Workspace -->
+    <main class="viewport">
+      <canvas class="photo-canvas"></canvas>
+      <video class="player" autoplay playsinline></video>
+    </main>
+
+    <!-- Photo Gallery Strip -->
+    <div class="strip"></div>
+
+    <audio class="snap-sound" src="https://www.soundjay.com/mechanical/camera-shutter-click-01.mp3" preload="auto"></audio>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
